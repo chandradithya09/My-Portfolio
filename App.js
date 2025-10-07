@@ -104,7 +104,7 @@ const App = () => {
                   <h4 className="text-xl font-semibold">B.Tech in Computer Science Engineering</h4>
                   <p className="text-[#A0A0A0] text-sm">Marrri Laxman Reddy Institute of Technology and Management, Hyderabad</p>
                   <p className="text-[#A0A0A0] text-sm">2022 - 2026</p>
-                  <p className="text-[#A0A0A0] text-sm mt-2">CGPA: <span className="font-bold text-white">7.95</span></p>
+                  <p className="text-[#A0A0A0] text-sm mt-2">CGPA: <span className="font-bold text-white">7.99</span></p>
                 </div>
               </div>
               {/* Intermediate */}
@@ -219,7 +219,7 @@ const App = () => {
           <div className="bg-[#2C2C44] p-8 rounded-lg shadow-xl text-center">
             {/* Line chart icon */}
             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-line-chart text-[#E91E63] mx-auto mb-4"><path d="M3 3v18h18"/><path d="m18 10-6 6-4-4-5 5"/></svg>
-            <h3 className="text-5xl font-bold text-[#E91E63] mb-2">7.95</h3>
+            <h3 className="text-5xl font-bold text-[#E91E63] mb-2">7.99</h3>
             <p className="text-[#A0A0A0]">Current CGPA</p>
             <p className="text-[#A0A0A0] text-sm">B.Tech Performance</p>
           </div>
