@@ -2,12 +2,21 @@ import { useCallback, useEffect, useState } from 'react';
 import { supabase } from '../lib/supabase';
 
 const preferenceId = 'default';
+const storageKey = 'portfolio-job-preferences';
 const fallbackSkills = ['Python', 'MySQL', 'HTML', 'CSS', 'JavaScript'];
+
+function readLocalPreferences() {
+  try {
+    const saved = window.localStorage.getItem(storageKey);
+    return saved ? JSON.parse(saved) : null;
+  } catch {
+    return null;
+  }
+}
 
 export function useJobPreferences() {
   const [selectedSkills, setSelectedSkills] = useState(fallbackSkills);
   const [nextReviewAt, setNextReviewAt] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
   const [isSaving, setIsSaving] = useState(false);
   const [saveError, setSaveError] = useState('');
 
@@ -15,6 +24,15 @@ export function useJobPreferences() {
     let active = true;
 
     async function loadPreferences() {
+      if (!supabase) {
+        const saved = readLocalPreferences();
+        if (active && saved?.selectedSkills) {
+          setSelectedSkills(saved.selectedSkills);
+          setNextReviewAt(saved.nextReviewAt ?? null);
+        }
+        return;
+      }
+
       const { data, error } = await supabase
         .from('portfolio_job_preferences')
         .select('selected_skills, next_review_at')
@@ -26,7 +44,6 @@ export function useJobPreferences() {
         setSelectedSkills(data.selected_skills);
         setNextReviewAt(data.next_review_at);
       }
-      setIsLoading(false);
     }
 
     loadPreferences();
@@ -46,16 +63,21 @@ export function useJobPreferences() {
     setSelectedSkills(nextSkills);
     setNextReviewAt(nextReview);
 
-    const { error } = await supabase.from('portfolio_job_preferences').upsert({
-      id: preferenceId,
-      selected_skills: nextSkills,
-      next_review_at: nextReview,
-      updated_at: new Date().toISOString(),
-    });
+    const localValue = JSON.stringify({ selectedSkills: nextSkills, nextReviewAt: nextReview });
+    window.localStorage.setItem(storageKey, localValue);
 
-    if (error) setSaveError('Your selection could not be saved yet. Please try again.');
+    if (supabase) {
+      const { error } = await supabase.from('portfolio_job_preferences').upsert({
+        id: preferenceId,
+        selected_skills: nextSkills,
+        next_review_at: nextReview,
+        updated_at: new Date().toISOString(),
+      });
+      if (error) setSaveError('Saved on this device. The shared profile could not be updated yet.');
+    }
+
     setIsSaving(false);
   }, [selectedSkills]);
 
-  return { selectedSkills, nextReviewAt, isLoading, isSaving, saveError, toggleSkill };
+  return { selectedSkills, nextReviewAt, isSaving, saveError, toggleSkill };
 }

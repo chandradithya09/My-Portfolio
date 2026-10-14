@@ -3,6 +3,16 @@ name: Deploy portfolio to GitHub Pages
 on:
   push:
     branches: ["main"]
+    paths:
+      - "src/**"
+      - "public/**"
+      - "index.html"
+      - "package.json"
+      - "package-lock.json"
+      - "postcss.config.js"
+      - "tailwind.config.js"
+      - "vite.config.js"
+      - ".github/workflows/jekyll-gh-pages.yml"
   workflow_dispatch:
 
 permissions:
