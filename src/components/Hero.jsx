@@ -64,13 +64,13 @@ export default function Hero() {
                 />
               </a>
               <a
-                href="./GADDIPATI CHANDRADITHYA Resume A.pdf"
+                href="./updated-resume.html"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 text-light-text border border-border-subtle px-8 py-3.5 rounded-full hover:bg-card-bg hover:border-accent-pink/50 transition-all duration-300"
               >
                 <FileText size={18} />
-                View Resume
+                View Updated Resume
               </a>
             </div>
           </div>
