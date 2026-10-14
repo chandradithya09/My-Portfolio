@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-dark-bg text-light-text font-poppins antialiased;
+  }
+  ::selection {
+    @apply bg-accent-pink/30 text-white;
+  }
+}
+
+@layer utilities {
+  .gradient-text {
+    @apply bg-gradient-to-r from-accent-pink via-accent-pink-light to-secondary-accent bg-clip-text text-transparent;
+    background-size: 200% auto;
+  }
+  .gradient-text-animated {
+    @apply gradient-text animate-gradientShift;
+  }
+  .glass-card {
+    @apply bg-card-bg/80 backdrop-blur-sm border border-border-subtle;
+  }
+  .section-padding {
+    @apply px-4 py-16 md:py-24;
+  }
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0F0F1A;
+}
+::-webkit-scrollbar-thumb {
+  background: #2A2A42;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #FF4081;
+}
+
+/* Glow utility */
+.glow-pink {
+  box-shadow: 0 0 30px rgba(255, 64, 129, 0.25);
+}
+.glow-pink-strong {
+  box-shadow: 0 0 50px rgba(255, 64, 129, 0.4);
+}
+
+/* Animated gradient background blob */
+.blob {
+  filter: blur(80px);
+  opacity: 0.15;
+}
