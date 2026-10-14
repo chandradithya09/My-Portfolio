@@ -1,4 +1,6 @@
 import { ArrowDown, FileText } from 'lucide-react';
+import profileImage from '../assets/image3.jpeg';
+import resumePdf from '../assets/GADDIPATI CHANDRADITHYA Resume A.pdf';
 
 export default function Hero() {
   return (
@@ -64,13 +66,21 @@ export default function Hero() {
                 />
               </a>
               <a
-                href="./updated-resume.html"
+                href={`${import.meta.env.BASE_URL}updated-resume.html`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 text-light-text border border-border-subtle px-8 py-3.5 rounded-full hover:bg-card-bg hover:border-accent-pink/50 transition-all duration-300"
               >
                 <FileText size={18} />
                 View Updated Resume
+              </a>
+              <a
+                href={resumePdf}
+                download="Gaddipati-Chandradithya-Resume.pdf"
+                className="flex items-center justify-center gap-2 text-muted-text border border-border-subtle/60 px-5 py-3.5 rounded-full hover:text-light-text hover:bg-card-bg transition-all duration-300"
+              >
+                <FileText size={17} />
+                Download PDF
               </a>
             </div>
           </div>
@@ -88,7 +98,7 @@ export default function Hero() {
               {/* Photo container */}
               <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-accent-pink/80 glow-pink-strong animate-pulseGlow">
                 <img
-                  src="./image3.jpeg"
+                  src={profileImage}
                   alt="Chandradithya"
                   className="w-full h-full object-cover"
                   onError={(e) => {
