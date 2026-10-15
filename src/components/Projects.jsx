@@ -1,4 +1,4 @@
-import { Shield, MessageSquare, ExternalLink } from 'lucide-react';
+import { Shield, MessageSquare, WalletCards, ExternalLink } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { SectionHeading } from './About';
 
@@ -28,6 +28,19 @@ const projects = [
       'Responsive design for all devices',
     ],
     liveDemo: 'https://realtime-chat-app-nsv4.vercel.app',
+  },
+  {
+    icon: WalletCards,
+    title: 'Smart Expense Tracker',
+    description:
+      'A practical expense management application that helps users record, organize, and review their spending through a clean and focused dashboard.',
+    tech: ['React', 'JavaScript', 'Tailwind CSS', 'Vercel'],
+    features: [
+      'Track daily expenses with clear categories and details',
+      'Review spending patterns through an easy-to-use dashboard',
+      'Responsive experience designed for desktop and mobile use',
+    ],
+    liveDemo: 'https://smart-expense-tracker-ten-beryl.vercel.app/login',
   },
 ];
 
