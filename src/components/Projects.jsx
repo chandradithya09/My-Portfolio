@@ -40,7 +40,7 @@ const projects = [
       'Review spending patterns through an easy-to-use dashboard',
       'Responsive experience designed for desktop and mobile use',
     ],
-    liveDemo: 'https://smart-expense-tracker-ten-beryl.vercel.app/login',
+    liveDemo: 'https://smart-expense-tracker-ten-beryl.vercel.app',
   },
 ];
 
