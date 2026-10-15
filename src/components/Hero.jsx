@@ -1,8 +1,8 @@
 import { ArrowDown, FileText } from 'lucide-react';
 import profileImage from '../assets/image3.jpeg';
-import resumePdf from '../assets/GADDIPATI CHANDRADITHYA Resume A.pdf';
-
 export default function Hero() {
+  const resumePdf = `${import.meta.env.BASE_URL}GADDIPATI_CHANDRADITHYA_RESUME_05-10-26.pdf`;
+
   return (
     <section
       id="home"
