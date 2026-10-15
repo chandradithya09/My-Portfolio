@@ -66,21 +66,21 @@ export default function Hero() {
                 />
               </a>
               <a
-                href={`${import.meta.env.BASE_URL}updated-resume.html`}
+                href={resumePdf}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 text-light-text border border-border-subtle px-8 py-3.5 rounded-full hover:bg-card-bg hover:border-accent-pink/50 transition-all duration-300"
               >
                 <FileText size={18} />
-                View Updated Resume
+                View Resume
               </a>
               <a
                 href={resumePdf}
-                download="Gaddipati-Chandradithya-Resume.pdf"
+                download="GADDIPATI-CHANDRADITHYA-Resume.pdf"
                 className="flex items-center justify-center gap-2 text-muted-text border border-border-subtle/60 px-5 py-3.5 rounded-full hover:text-light-text hover:bg-card-bg transition-all duration-300"
               >
                 <FileText size={17} />
-                Download PDF
+                Download Resume
               </a>
             </div>
           </div>
